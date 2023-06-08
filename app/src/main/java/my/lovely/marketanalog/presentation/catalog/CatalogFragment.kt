@@ -8,7 +8,6 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import my.lovely.marketanalog.R
 
-
 @AndroidEntryPoint
 class CatalogFragment:  Fragment(R.layout.fragment_catalog) {
 

@@ -1,6 +1,5 @@
 package my.lovely.marketanalog.presentation.catalog
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import my.lovely.marketanalog.domain.model.DataResponse
-import my.lovely.marketanalog.domain.usecase.GetCatalogUseCase
+import my.lovely.domain.model.DataResponse
+import my.lovely.domain.usecase.GetCatalogUseCase
 import javax.inject.Inject
 
 @HiltViewModel

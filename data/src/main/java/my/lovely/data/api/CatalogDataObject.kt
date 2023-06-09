@@ -14,13 +14,13 @@ private const val BASE_URL = "https://run.mocky.io/v3/"
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataObject {
+object CatalogDataObject {
 
-    var retrofitService: DataService? = null
+    var retrofitService: CatalogDataService? = null
 
     @Provides
     @Singleton
-    fun getInstance() : DataService {
+    fun getInstance() : CatalogDataService {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
         val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
@@ -28,7 +28,7 @@ object DataObject {
             val retrofit = Retrofit.Builder().baseUrl(BASE_URL).client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-            retrofitService = retrofit.create(DataService::class.java)
+            retrofitService = retrofit.create(CatalogDataService::class.java)
         }
         return retrofitService!!
     }

@@ -1,8 +1,9 @@
-package my.lovely.marketanalog
+package my.lovely.marketanalog.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import dagger.hilt.android.AndroidEntryPoint
+import my.lovely.marketanalog.R
 
 
 @AndroidEntryPoint

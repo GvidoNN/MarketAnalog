@@ -1,4 +1,4 @@
-package my.lovely.marketanalog.presentation.catalog
+package my.lovely.marketanalog.presentation.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

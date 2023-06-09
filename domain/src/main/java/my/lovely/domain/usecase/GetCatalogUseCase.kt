@@ -11,5 +11,4 @@ class GetCatalogUseCase @Inject constructor(private val catalogRepository: Catal
         return catalogRepository.getCatalog()
     }
 
-
 }

@@ -6,6 +6,65 @@
 
     <fragment
         android:id="@+id/catalogFragment"
-        android:name="my.lovely.marketanalog.presentation.catalog.CatalogFragment"
-        android:label="CatalogFragment" />
+        android:name="my.lovely.marketanalog.presentation.main.CatalogFragment"
+        android:label="catalogFragment" >
+        <action
+            android:id="@+id/action_catalogFragment_to_asiaFragment"
+            app:destination="@id/asiaFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_basketFragment"
+            app:destination="@id/basketFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/asiaFragment"
+        android:name="my.lovely.marketanalog.presentation.menu_asia.AsiaFragment"
+        android:label="asiaFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="my.lovely.marketanalog.presentation.search.SearchFragment"
+        android:label="searchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_mainFragment"
+            app:destination="@id/catalogFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_basketFragment"
+            app:destination="@id/basketFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="my.lovely.marketanalog.presentation.profile.ProfileFragment"
+        android:label="profileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_mainFragment"
+            app:destination="@id/catalogFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_basketFragment"
+            app:destination="@id/basketFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="my.lovely.marketanalog.presentation.basket.BasketFragment"
+        android:label="basketFragment" >
+        <action
+            android:id="@+id/action_basketFragment_to_mainFragment"
+            app:destination="@id/catalogFragment" />
+        <action
+            android:id="@+id/action_basketFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_basketFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>

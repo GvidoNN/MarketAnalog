@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">MarketAnalog</string>
+    <string name="app_name" translatable="false">MarketAnalog</string>
+    <string name="main">Main</string>
+    <string name="search">Search</string>
+    <string name="basket">Basket</string>
+    <string name="profile">Profile</string>
 </resources>

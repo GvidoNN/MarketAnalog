@@ -3,9 +3,7 @@ package my.lovely.marketanalog.presentation.menu_asia
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.media.Image
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.Button
@@ -14,14 +12,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import my.lovely.domain.model.Basket
 import my.lovely.marketanalog.R
-import my.lovely.marketanalog.presentation.mainCatalog.CatalogAdapter
 
 @AndroidEntryPoint
 class AsiaFragment: Fragment(R.layout.fragment_asia_menu) {
@@ -43,9 +39,6 @@ class AsiaFragment: Fragment(R.layout.fragment_asia_menu) {
 
         asiaViewModel.menu.observe(viewLifecycleOwner){ result ->
             if (result != null) {
-                result.dishes.forEach {
-                    Log.d("MyLog",it.toString())
-                }
                 adapter.setAsiaList(result.dishes)
             }
         }
@@ -66,18 +59,18 @@ class AsiaFragment: Fragment(R.layout.fragment_asia_menu) {
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         val btAlertCross: ImageButton = dialog.findViewById(R.id.imBtCross)
-        val btAlertLike: ImageButton = dialog.findViewById(R.id.imBtLike)
         val btAlertAddToCart: Button = dialog.findViewById(R.id.btCardAddToBucket)
         val imAlertDish: ImageView = dialog.findViewById(R.id.imCardDish)
         val tvAlertDishName: TextView = dialog.findViewById(R.id.tvCardName)
         val tvAlertDishPrice: TextView = dialog.findViewById(R.id.tvCardPrice)
         val tvAlertDishWeight: TextView = dialog.findViewById(R.id.tvCardWeight)
+        val tvAlertDishDesc: TextView = dialog.findViewById(R.id.tvCardDescription)
 
         Glide.with(requireContext()).load(dishData.image_url).into(imAlertDish)
         tvAlertDishName.text = dishData.name
-        tvAlertDishPrice.text = dishData.price.toString()
-        tvAlertDishWeight.text = dishData.weight.toString()
-
+        tvAlertDishPrice.text = dishData.price.toString() + " ₽"
+        tvAlertDishWeight.text = " · " + dishData.weight.toString() + "г"
+        tvAlertDishDesc.text = dishData.description
 
         btAlertCross.setOnClickListener {
             dialog.dismiss()

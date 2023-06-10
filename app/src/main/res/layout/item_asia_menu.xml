@@ -12,7 +12,7 @@
         android:layout_margin="10dp"
         android:background="@color/white"
         android:outlineSpotShadowColor="@android:color/transparent"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,18 +24,22 @@
 
             <ImageView
                 android:id="@+id/imMenu"
-                android:layout_width="100dp"
-                android:layout_height="105dp"
+                android:layout_width="105dp"
+                android:layout_height="110dp"
+                android:background="@color/white_gray"
+                android:backgroundTint="@color/white_gray"
                 app:srcCompat="@drawable/big" />
 
             <TextView
                 android:id="@+id/tvMenuName"
-                android:layout_width="wrap_content"
+                android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/sf_regular"
                 android:foregroundGravity="center_vertical|center"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="@color/black" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

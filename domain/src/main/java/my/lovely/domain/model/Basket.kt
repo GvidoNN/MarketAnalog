@@ -17,5 +17,7 @@ data class Basket(
     @ColumnInfo(name = "dish_weight")
     var weight: Int,
     @ColumnInfo(name = "dish_count")
-    var count: Int
+    var count: Int,
+    @ColumnInfo(name = "dish_image")
+    var image: String
 )

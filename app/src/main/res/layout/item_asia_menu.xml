@@ -12,7 +12,7 @@
         android:layout_margin="10dp"
         android:background="@color/white"
         android:outlineSpotShadowColor="@android:color/transparent"
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,7 +25,7 @@
             <ImageView
                 android:id="@+id/imMenu"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="105dp"
                 app:srcCompat="@drawable/big" />
 
             <TextView

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import my.lovely.domain.model.Catalog
@@ -18,15 +19,16 @@ class AsiaAdapter() :
     private lateinit var context: Context
     private lateinit var menuListener: OnItemClickListener
 
-    private var asiaList = mutableListOf<Dishe>()
+    var asianList = mutableListOf<Dishe>()
 
     fun setAsiaList(dish: List<Dishe>) {
-        this.asiaList = dish.toMutableList()
+        this.asianList = dish.toMutableList()
         notifyDataSetChanged()
     }
 
     class AsiaViewHolder(itemView: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
         val imAsiaMenu: ImageView = itemView.findViewById(R.id.imMenu)
+        val tvMenuName: TextView = itemView.findViewById(R.id.tvMenuName)
 
         init {
             itemView.setOnClickListener {
@@ -43,11 +45,12 @@ class AsiaAdapter() :
     }
 
     override fun getItemCount(): Int {
-        return asiaList.size
+        return asianList.size
     }
 
     override fun onBindViewHolder(holder: AsiaViewHolder, position: Int) {
-        val asiaData = asiaList[position]
+        val asiaData = asianList[position]
+        holder.tvMenuName.text = asiaData.name
         Glide.with(holder.itemView).load(asiaData.image_url).into(holder.imAsiaMenu)
     }
 

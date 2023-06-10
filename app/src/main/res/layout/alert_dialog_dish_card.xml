@@ -1,21 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:cardCornerRadius="20dp">
 
-    <ImageView
-        android:id="@+id/imCardDish"
-        android:layout_width="match_parent"
-        android:layout_height="258dp"
-        app:srcCompat="@drawable/rice1" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="right"
-        app:srcCompat="@drawable/ic_basket" />
+        <ImageButton
+            android:id="@+id/imBtLike"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/imBtCross"
+            app:srcCompat="@drawable/ic_heart"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <ImageView
+            android:id="@+id/imCardDish"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            app:srcCompat="@drawable/rice1"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <ImageButton
+            android:id="@+id/imBtCross"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/imCardDish"
+            app:srcCompat="@drawable/ic_cross" />
+
+        <TextView
+            android:id="@+id/tvCardName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="left"
+            android:text="Большие яйцы"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/imCardDish"
+            app:layout_constraintHorizontal_bias="0.021"
+            app:layout_constraintStart_toStartOf="@+id/imCardDish"
+            app:layout_constraintTop_toBottomOf="@+id/imCardDish" />
+
+        <TextView
+            android:id="@+id/tvCardPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text=" 799 $"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/tvCardName"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardName" />
+
+        <TextView
+            android:id="@+id/tvCardWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:text="560 г"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/tvCardPrice"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardName" />
+
+        <TextView
+            android:id="@+id/tvCardDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Рыба маринованная со специями, лимонным соком, соевым соусом и запечeнная в духовке с лучком, томатами и картошечкой под золотистой майонезно-сырной шубкой"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/tvCardName"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardPrice" />
+
+        <Button
+            android:id="@+id/btCardAddToBucket"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="@string/add_to_cart"
+            app:layout_constraintEnd_toEndOf="@+id/imCardDish"
+            app:layout_constraintStart_toStartOf="@+id/imCardDish"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

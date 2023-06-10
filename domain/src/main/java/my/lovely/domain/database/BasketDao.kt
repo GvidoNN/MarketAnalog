@@ -13,13 +13,13 @@ import my.lovely.domain.model.Basket
 interface BasketDao {
 
     @Insert
-    suspend fun insertBook(item: Basket)
+    suspend fun insertDish(item: Basket)
 
     @Update
-    suspend fun updateBook(item: Basket)
+    suspend fun updateDish(item: Basket)
 
     @Delete
-    suspend fun deleteBook(item: Basket)
+    suspend fun deleteDish(item: Basket)
 
     @Query("SELECT * FROM basket_data_table")
     fun getAllDishes(): LiveData<List<Basket>>

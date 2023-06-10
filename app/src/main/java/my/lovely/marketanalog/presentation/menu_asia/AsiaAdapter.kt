@@ -16,7 +16,7 @@ class AsiaAdapter() :
     RecyclerView.Adapter<AsiaAdapter.AsiaViewHolder>() {
 
     private lateinit var context: Context
-//    private lateinit var catalogListener: OnItemClickListener
+    private lateinit var menuListener: OnItemClickListener
 
     private var asiaList = mutableListOf<Dishe>()
 
@@ -25,18 +25,21 @@ class AsiaAdapter() :
         notifyDataSetChanged()
     }
 
-    //    , listener: OnItemClickListener
-    class AsiaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class AsiaViewHolder(itemView: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
         val imAsiaMenu: ImageView = itemView.findViewById(R.id.imMenu)
+
+        init {
+            itemView.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AsiaViewHolder {
         context = parent.context
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_asia_menu, parent, false)
-        return AsiaViewHolder(view)
-//        , catalogListener
-
+        return AsiaViewHolder(view, menuListener)
     }
 
     override fun getItemCount(): Int {
@@ -45,21 +48,15 @@ class AsiaAdapter() :
 
     override fun onBindViewHolder(holder: AsiaViewHolder, position: Int) {
         val asiaData = asiaList[position]
-        val url = asiaData.image_url
-        if(url == null){
-            Log.d("MyLog","$position null")
-        } else{
-            Log.d("MyLog",url)
-        }
         Glide.with(holder.itemView).load(asiaData.image_url).into(holder.imAsiaMenu)
     }
 
-    /*interface OnItemClickListener{
+    interface OnItemClickListener{
         fun onItemClick(position: Int)
     }
 
     fun setOnItemClickListener(listener: OnItemClickListener){
-        catalogListener = listener
-    }*/
+        menuListener = listener
+    }
 
 }

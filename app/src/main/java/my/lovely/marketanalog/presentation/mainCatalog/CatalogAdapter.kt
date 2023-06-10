@@ -1,10 +1,11 @@
-package my.lovely.marketanalog.presentation.main
+package my.lovely.marketanalog.presentation.mainCatalog
 
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -26,9 +27,9 @@ class CatalogAdapter() :
         notifyDataSetChanged()
     }
 
-//    , listener: OnItemClickListener
     class CatalogViewHolder(itemView: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
         val cardView: CardView = itemView.findViewById(R.id.cardView)
+        val tvCatalogName: TextView = itemView.findViewById(R.id.tvCatalogName)
 
         init {
             itemView.setOnClickListener {
@@ -42,8 +43,6 @@ class CatalogAdapter() :
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_catalog, parent, false)
         return CatalogViewHolder(view, catalogListener)
-//        , catalogListener
-
     }
 
     override fun getItemCount(): Int {
@@ -52,6 +51,7 @@ class CatalogAdapter() :
 
     override fun onBindViewHolder(holder: CatalogViewHolder, position: Int) {
         val catalogData = catalogList[position]
+        holder.tvCatalogName.text = catalogData.name
         val url = catalogData.image_url
         Glide.with(holder.itemView.context)
             .load(url)

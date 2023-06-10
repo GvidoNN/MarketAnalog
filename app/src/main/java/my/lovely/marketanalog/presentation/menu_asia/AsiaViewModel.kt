@@ -12,7 +12,10 @@ import my.lovely.domain.usecase.GetAsiaMenuUseCase
 import javax.inject.Inject
 
 @HiltViewModel
-class AsiaViewModel @Inject constructor(private val getAsiaMenuUseCase: GetAsiaMenuUseCase): ViewModel() {
+class AsiaViewModel @Inject constructor(
+    private val getAsiaMenuUseCase: GetAsiaMenuUseCase
+) :
+    ViewModel() {
 
     private val asiaMenuLiveData = MutableLiveData<AsiaResponse>()
     private var progressBarLiveData = MutableLiveData<Boolean>()

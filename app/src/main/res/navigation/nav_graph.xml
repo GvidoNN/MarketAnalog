@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/catalogFragment"
-        android:name="my.lovely.marketanalog.presentation.main.CatalogFragment"
+        android:name="my.lovely.marketanalog.presentation.mainCatalog.CatalogFragment"
         android:label="catalogFragment" >
         <action
             android:id="@+id/action_catalogFragment_to_asiaFragment"

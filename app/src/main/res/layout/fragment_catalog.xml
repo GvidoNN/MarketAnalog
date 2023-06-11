@@ -18,14 +18,54 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
                 app:srcCompat="@drawable/ic_location" />
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|left"
+                android:layout_weight="0"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvMainCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0"
+                    android:fontFamily="@font/sf_medium"
+                    android:foregroundGravity="center_vertical|center"
+                    android:gravity="center|left"
+                    android:text="TextView"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvMainDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_regular"
+                    android:text="TextView"
+                    android:textColor="@color/gray" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:layout_weight="2" />
+
             <androidx.cardview.widget.CardView
-                android:id="@+id/messageRingCardView"
+                android:id="@+id/toolbarRingCardView"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="0"
                 android:elevation="12dp"
                 android:innerRadius="0dp"
                 android:shape="ring"
@@ -33,10 +73,12 @@
                 app:cardCornerRadius="30dp">
 
                 <ImageView
-                    android:id="@+id/imMessage"
-                    android:layout_width="65dp"
+                    android:id="@+id/imToolbar"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:layout_gravity="right"
+                    android:foregroundGravity="right"
+                    tools:srcCompat="@drawable/petya" />
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>

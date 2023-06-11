@@ -9,6 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import my.lovely.domain.model.DataResponse
 import my.lovely.domain.usecase.GetCatalogUseCase
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -28,6 +29,14 @@ class CatalogViewModel @Inject constructor(private val getCatalogUseCase: GetCat
         var result = getCatalogUseCase.getCatalog()
         catalogLiveData.postValue(result?.body() ?: null)
         progressBarLiveData.postValue(false)
+    }
+
+    fun getDate(): String {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH) + 1
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        return String.format("%02d.%02d.%d", day, month, year)
     }
     
 }

@@ -61,8 +61,8 @@ class BasketAdapter : RecyclerView.Adapter<BasketAdapter.BasketViewHolder>() {
         Glide.with(holder.itemView).load(basketData.image).into(holder.imDishImage)
         holder.tvDishName.text = basketData.name
         holder.tvDishCount.text = basketData.count.toString()
-        holder.tvDishWeight.text = basketData.weight.toString()
-        holder.tvDishPrice.text = basketData.price.toString()
+        holder.tvDishWeight.text = " · " + basketData.weight.toString() + "г"
+        holder.tvDishPrice.text = basketData.price.toString() + " ₽"
     }
 
     override fun getItemCount(): Int {

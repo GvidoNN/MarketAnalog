@@ -1,15 +1,15 @@
 package my.lovely.marketanalog.di
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import my.lovely.domain.repository.AsiaMenuRepository
 import my.lovely.domain.repository.BasketRepository
 import my.lovely.domain.repository.CatalogRepository
-import my.lovely.domain.usecase.GetAsiaMenuUseCase
-import my.lovely.domain.usecase.GetBasketDaoDbUseCase
-import my.lovely.domain.usecase.GetCatalogUseCase
+import my.lovely.domain.usecase.*
 
 @Module
 @InstallIn(ViewModelComponent::class)
@@ -30,6 +30,8 @@ class DomainModule {
         return GetBasketDaoDbUseCase(basketRepository = basketReposotiry)
     }
 
-
-
+    @Provides
+    fun provideGetDateUseCase(): GetDateUseCase {
+        return GetDateUseCase()
+    }
 }

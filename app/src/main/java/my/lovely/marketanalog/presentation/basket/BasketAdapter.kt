@@ -15,12 +15,12 @@ import my.lovely.marketanalog.R
 class BasketAdapter : RecyclerView.Adapter<BasketAdapter.BasketViewHolder>() {
 
     private lateinit var context: Context
-    private var basketList = mutableListOf<Basket>()
+    var basketDishesList = mutableListOf<Basket>()
     private lateinit var minusBasketListener: OnItemClickListener
     private lateinit var plusBasketListener: OnItemClickListener
 
     fun setBasketList(basket: List<Basket>) {
-        this.basketList = basket.toMutableList()
+        this.basketDishesList = basket.toMutableList()
         notifyDataSetChanged()
     }
 
@@ -57,7 +57,7 @@ class BasketAdapter : RecyclerView.Adapter<BasketAdapter.BasketViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: BasketViewHolder, position: Int) {
-        val basketData = basketList[position]
+        val basketData = basketDishesList[position]
         Glide.with(holder.itemView).load(basketData.image).into(holder.imDishImage)
         holder.tvDishName.text = basketData.name
         holder.tvDishCount.text = basketData.count.toString()
@@ -66,7 +66,7 @@ class BasketAdapter : RecyclerView.Adapter<BasketAdapter.BasketViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return basketList.size
+        return basketDishesList.size
     }
 
     interface OnItemClickListener {

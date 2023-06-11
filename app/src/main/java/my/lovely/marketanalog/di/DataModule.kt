@@ -37,5 +37,4 @@ class DataModule {
     fun provideBasketRepositoryImpl(basketDao: BasketDao): BasketRepository {
         return BasketRepositoryImpl(basketDao = basketDao)
     }
-
 }

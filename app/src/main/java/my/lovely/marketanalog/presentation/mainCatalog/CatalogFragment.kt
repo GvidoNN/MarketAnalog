@@ -22,15 +22,14 @@ import my.lovely.marketanalog.databinding.FragmentBasketBinding
 import my.lovely.marketanalog.databinding.FragmentCatalogBinding
 import java.util.*
 
-private const val REQUEST_LOCATION_PERMISSION = 1
+const val REQUEST_LOCATION_PERMISSION = 1
 @AndroidEntryPoint
 class CatalogFragment:  Fragment(R.layout.fragment_catalog) {
 
     private val catalogViewModel: CatalogViewModel by viewModels()
-    private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CatalogAdapter
-    private lateinit var locationManager: LocationManager
     private lateinit var binding: FragmentCatalogBinding
+    private lateinit var locationManager: LocationManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,18 +45,21 @@ class CatalogFragment:  Fragment(R.layout.fragment_catalog) {
 
         requestPermission()
 
-        binding.tvMainDate.text = catalogViewModel.getDate()
-
         adapter = CatalogAdapter()
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         catalogViewModel.catalogResponse()
+        catalogViewModel.getDate()
 
         catalogViewModel.catalog.observe(viewLifecycleOwner){ result ->
             if (result != null) {
                 adapter.setCatalogsList(result.catalog)
             }
+        }
+
+        catalogViewModel.date.observe(viewLifecycleOwner){
+            binding.tvMainDate.text = it
         }
 
         adapter.setOnItemClickListener(object: CatalogAdapter.OnItemClickListener{

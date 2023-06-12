@@ -23,8 +23,6 @@ class BasketFragment : Fragment(R.layout.fragment_basket) {
     private val viewModel: BasketViewModel by viewModels()
     private lateinit var adapter: BasketAdapter
     private lateinit var binding: FragmentBasketBinding
-    private var money = 0
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,116 +35,79 @@ class BasketFragment : Fragment(R.layout.fragment_basket) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("MyLog","OnViewCreated")
 
-        var first = true
+
 
         binding.basketRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = BasketAdapter()
         binding.basketRecyclerView.adapter = adapter
+        var money = 0
 
         viewModel.dishes.observe(viewLifecycleOwner) { result ->
-            if (first) {
-                result.forEach {
-                    money += it.price
-                }
-                first = !first
+            money = 0
+            adapter.setBasketList(result)
+            result.forEach {
+                money += it.price * it.count
             }
             binding.btBasketPay.text = getString(R.string.pay) + money + " ₽"
-            adapter.setBasketList(result)
             adapter.notifyDataSetChanged()
+        }
+
+        viewModel.date.observe(viewLifecycleOwner) {
+            binding.tvMainDate.text = it
+        }
+
+        viewModel.location.observe(viewLifecycleOwner) {
+            binding.tvMainCity.text = it
         }
 
         requestPermission()
         viewModel.getDate()
 
-        viewModel.date.observe(viewLifecycleOwner){
-            binding.tvMainDate.text = it
-        }
-
-        viewModel.location.observe(viewLifecycleOwner){
-            binding.tvMainCity.text = it
-        }
-
         adapter.setOnMinusClickListener(object : BasketAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 val dishData = adapter.basketDishesList[position]
                 if (dishData.count == 1) {
-                    deleteDishData(
+                    viewModel.deleteDish(
+                        dish = Basket(
                         id = dishData.id,
                         name = dishData.name,
                         price = dishData.price,
                         weight = dishData.weight,
                         count = dishData.count,
                         image = dishData.image
-                    )
+                    ))
                 } else {
-                    updateDishCount(
-                        id = dishData.id,
-                        name = dishData.name,
-                        price = dishData.price,
-                        weight = dishData.weight,
-                        count = dishData.count - 1,
-                        image = dishData.image
+                    viewModel.updateDish(
+                        dish = Basket(
+                            id = dishData.id,
+                            name = dishData.name,
+                            price = dishData.price,
+                            weight = dishData.weight,
+                            count = dishData.count - 1,
+                            image = dishData.image
+                        )
                     )
                 }
-                money -= dishData.price
             }
         })
 
         adapter.setOnPlusBookListener(object : BasketAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 val dishData = adapter.basketDishesList[position]
-                updateDishCount(
-                    id = dishData.id,
-                    name = dishData.name,
-                    price = dishData.price,
-                    weight = dishData.weight,
-                    count = dishData.count + 1,
-                    image = dishData.image
+                viewModel.updateDish(
+                    dish = Basket(
+                        id = dishData.id,
+                        name = dishData.name,
+                        price = dishData.price,
+                        weight = dishData.weight,
+                        count = dishData.count + 1,
+                        image = dishData.image
+                    )
                 )
-                money += dishData.price
             }
         })
-    }
-
-    private fun updateDishCount(
-        id: Int,
-        name: String,
-        price: Int,
-        weight: Int,
-        count: Int,
-        image: String
-    ) {
-        viewModel.updateDish(
-            dish = Basket(
-                id = id,
-                name = name,
-                price = price,
-                weight = weight,
-                count = count,
-                image = image
-            )
-        )
-    }
-
-    private fun deleteDishData(
-        id: Int,
-        name: String,
-        price: Int,
-        weight: Int,
-        count: Int,
-        image: String
-    ) {
-        viewModel.deleteDish(
-            dish = Basket(
-                id = id,
-                name = name,
-                price = price,
-                weight = weight,
-                count = count,
-                image = image
-            )
-        )
     }
 
     fun requestPermission() {

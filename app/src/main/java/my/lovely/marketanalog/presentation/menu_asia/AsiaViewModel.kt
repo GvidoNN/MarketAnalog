@@ -38,8 +38,8 @@ class AsiaViewModel @Inject constructor(
 
     fun asiaMenuResponse() = viewModelScope.launch(Dispatchers.IO) {
         progressBarLiveData.postValue(true)
-        var result = getAsiaMenuUseCase.getAsiaMenu()
-        asiaMenuLiveData.postValue(result?.body() ?: null)
+        val result = getAsiaMenuUseCase.getAsiaMenu()
+        asiaMenuLiveData.postValue(result?.body())
         progressBarLiveData.postValue(false)
     }
 

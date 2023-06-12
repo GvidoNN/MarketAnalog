@@ -3,6 +3,8 @@
     <string name="main">Главная</string>
     <string name="search">Поиск</string>
     <string name="basket">Корзина</string>
+    <string name="error">Упс, Ошибка! Пожалуйста попробуйте позже</string>
+    <string name="try_again">ПЕРЕЗАГРУЗКА</string>
     <string name="profile">Аккаунт</string>
     <string name="add_to_cart">Добавить в корзину</string>
 </resources>

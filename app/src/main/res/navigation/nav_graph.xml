@@ -24,7 +24,11 @@
     <fragment
         android:id="@+id/asiaFragment"
         android:name="my.lovely.marketanalog.presentation.menu_asia.AsiaFragment"
-        android:label="asiaFragment" />
+        android:label="asiaFragment" >
+        <action
+            android:id="@+id/action_asiaFragment_to_catalogFragment"
+            app:destination="@id/catalogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="my.lovely.marketanalog.presentation.search.SearchFragment"

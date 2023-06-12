@@ -34,4 +34,9 @@ class DomainModule {
     fun provideGetDateUseCase(): GetDateUseCase {
         return GetDateUseCase()
     }
+
+    @Provides
+    fun provideSortByTagUseCase(): SortByTagUseCase {
+        return SortByTagUseCase()
+    }
 }

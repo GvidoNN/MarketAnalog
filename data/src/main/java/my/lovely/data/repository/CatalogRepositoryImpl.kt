@@ -13,10 +13,8 @@ class CatalogRepositoryImpl@Inject constructor(private val dataService: CatalogD
     override suspend fun getCatalog(): Response<DataResponse>?{
         return try{
             val result = dataService.getCatalog()
-            Log.d("MyLog","Успешно в repository")
             result
         } catch (e: java.net.UnknownHostException){
-            Log.d("MyLog","Не Успешно в repository $e")
             null
         }
     }

@@ -2,7 +2,7 @@
 # Весь требуемый функционал был разработан
 ![1](https://github.com/GvidoNN/MarketAnalog/blob/master/2.jpg)| ![2](https://github.com/GvidoNN/MarketAnalog/blob/master/1.jpg)
 :-----------------------------------:|:------------------------------------:
-![3](https://github.com/GvidoNN/MarketAnalog/blob/master/3.jpg) | ![4](https://github.com/GvidoNN/MarketAnalog/blob/master/4.jpg)
+![3](https://github.com/GvidoNN/MarketAnalog/blob/master/5.jpg) | ![4](https://github.com/GvidoNN/MarketAnalog/blob/master/4.jpg)
 <h3 align="center"> Реализовано отображение всех блюд /h3>
 <h3 align="center"> Реализована сортировка блюд по категориям </h3>
 <h3 align="center"> Реализована корзина с продуктами </h3>  

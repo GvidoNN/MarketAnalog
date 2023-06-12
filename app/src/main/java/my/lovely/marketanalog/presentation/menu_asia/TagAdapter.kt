@@ -1,20 +1,15 @@
 package my.lovely.marketanalog.presentation.menu_asia
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import my.lovely.domain.model.Tag
 import my.lovely.marketanalog.R
-import java.lang.invoke.ConstantCallSite
 
 class TagAdapter() :
     RecyclerView.Adapter<TagAdapter.TagViewHolder>() {

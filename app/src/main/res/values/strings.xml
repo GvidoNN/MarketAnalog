@@ -7,4 +7,5 @@
     <string name="add_to_cart">Add to cart</string>
     <string name="error">Oops Error! Please try again later</string>
     <string name="try_again">TRY AGAIN</string>
+    <string name="pay">Pay: </string>
 </resources>

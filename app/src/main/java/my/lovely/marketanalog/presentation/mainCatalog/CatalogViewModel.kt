@@ -10,12 +10,14 @@ import kotlinx.coroutines.launch
 import my.lovely.domain.model.DataResponse
 import my.lovely.domain.usecase.GetCatalogUseCase
 import my.lovely.domain.usecase.GetDateUseCase
+import my.lovely.domain.usecase.GetLocationUseCase
 import javax.inject.Inject
 
 @HiltViewModel
 class CatalogViewModel @Inject constructor(
     private val getCatalogUseCase: GetCatalogUseCase,
-    private val getDateUseCase: GetDateUseCase
+    private val getDateUseCase: GetDateUseCase,
+    private val getLocationUseCase: GetLocationUseCase
 ) : ViewModel() {
 
     private val catalogLiveData = MutableLiveData<DataResponse>()
@@ -46,6 +48,10 @@ class CatalogViewModel @Inject constructor(
     fun getDate(){
         val date = getDateUseCase.getDate()
         dateLiveData.value = date
+    }
+
+    fun getLocation() {
+        locationLiveData.value = getLocationUseCase.getLocation()
     }
 
 }

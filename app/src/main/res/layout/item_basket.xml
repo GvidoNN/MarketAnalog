@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/tvCartDishName"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
@@ -56,13 +56,12 @@
     <androidx.cardview.widget.CardView
         android:layout_width="130dp"
         android:layout_height="50dp"
-        android:layout_marginStart="30dp"
         android:backgroundTint="@color/gray_plus_minus"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/imCartDish"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toEndOf="@+id/tvCartDishWeight"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toEndOf="@+id/tvCartDishName"
         app:layout_constraintTop_toTopOf="@+id/tvCartDishName"
         app:layout_constraintVertical_bias="0.29000002">
 

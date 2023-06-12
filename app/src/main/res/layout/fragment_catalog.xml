@@ -85,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:foregroundGravity="right"
+                    app:srcCompat="@drawable/orel"
                     tools:srcCompat="@drawable/orel" />
             </androidx.cardview.widget.CardView>
 

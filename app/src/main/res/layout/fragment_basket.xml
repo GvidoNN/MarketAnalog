@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:foregroundGravity="right"
-                tools:srcCompat="@drawable/orel" />
+                app:srcCompat="@drawable/orel" />
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
@@ -84,7 +84,21 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/basketRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/toolbarCatalog"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/btBasketPay"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center" />
 </LinearLayout>

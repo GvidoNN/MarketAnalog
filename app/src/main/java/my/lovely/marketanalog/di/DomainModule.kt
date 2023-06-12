@@ -39,4 +39,9 @@ class DomainModule {
     fun provideSortByTagUseCase(): SortByTagUseCase {
         return SortByTagUseCase()
     }
+
+    @Provides
+    fun provideGetLocationUseCase(@ApplicationContext context: Context): GetLocationUseCase {
+        return GetLocationUseCase(context = context)
+    }
 }

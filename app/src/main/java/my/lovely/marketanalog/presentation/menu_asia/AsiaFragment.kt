@@ -40,7 +40,7 @@ class AsiaFragment : Fragment(R.layout.fragment_asia_menu) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAsiaMenuBinding.inflate(inflater)
         return binding.root
     }
@@ -80,6 +80,10 @@ class AsiaFragment : Fragment(R.layout.fragment_asia_menu) {
 
         asiaViewModel.asiaMenuResponse()
 
+        btErrorTryAgain.setOnClickListener {
+            asiaViewModel.asiaMenuResponse()
+        }
+
         asiaViewModel.menu.observe(viewLifecycleOwner) { result ->
             if (result != null) {
                 dishesList = result.dishes as ArrayList<Dishe>
@@ -100,10 +104,6 @@ class AsiaFragment : Fragment(R.layout.fragment_asia_menu) {
             adapter.setAsiaList(it)
         }
 
-//        binding.btDone.setOnClickListener {
-//            asiaViewModel.sortDishes(dishes = dishesList, tag = "Салаты")
-//        }
-
         adapter.setOnItemClickListener(object : AsiaAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 showInfoAboutDish(position = position)
@@ -112,10 +112,15 @@ class AsiaFragment : Fragment(R.layout.fragment_asia_menu) {
 
         tagAdapter.setOnItemClickListener(object : TagAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
-                Log.d("MyLog",tagAdapter.tagsList[position].tag)
-                asiaViewModel.sortDishes(dishes = dishesList, tag = tagAdapter.tagsList[position].tag)
+                Log.d("MyLog", tagAdapter.tagsList[position].tag)
+                asiaViewModel.sortDishes(
+                    dishes = dishesList,
+                    tag = tagAdapter.tagsList[position].tag
+                )
             }
         })
+
+
 
 
     }
